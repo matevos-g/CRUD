@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Products</title>
+</head>
+
+<body>
+    <style class="forsidebar">
+      @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #000000;
+  transition: all .5s ease;
+}
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #000000;
+  user-select: none;
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgb(255, 255, 255);
+  transition: .4s;
+}
+ul li:hover a{
+  padding-left: 50px;
+}
+.sidebar ul a i{
+  margin-right: 16px;
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+  position: absolute;
+  background: #000000;
+  border-radius: 3px;
+  cursor: pointer;
+}
+label #btn{
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  padding: 6px 12px;
+  transition: all .5s;
+}
+label #cancel{
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #000000;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ label #cancel{
+  left: 195px;
+}
+#check:checked ~ section{
+  margin-left: 250px;
+}
+section{
+  background: url(bg.jpeg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all .5s;
+}
+
+        @font-face {
+            font-family: OpenSans-Regular;
+            src: url(../fonts/OpenSans/OpenSans-Regular.ttf)
+        }
+
+        .delete {
+            background-color: rgba(51, 51, 51, 0.05);
+            border-radius: 8px;
+            border-width: 0;
+            color: #333333;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 10px 12px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .update {
+            background-color: rgba(51, 51, 51, 0.05);
+            border-radius: 8px;
+            border-width: 0;
+            color: #333333;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            text-decoration: none;
+            list-style: none;
+            margin: 0;
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: sans-serif
+        }
+
+        a {
+            margin: 0;
+            transition: all .4s;
+            -webkit-transition: all .4s;
+            -o-transition: all .4s;
+            -moz-transition: all .4s
+        }
+
+        a:focus {
+            outline: none !important
+        }
+
+        a:hover {
+            text-decoration: none
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0
+        }
+
+        p {
+            margin: 0
+        }
+
+        ul,
+        li {
+            margin: 0;
+            list-style-type: none
+        }
+
+        input {
+            display: block;
+            outline: none;
+            border: none !important
+        }
+
+        textarea {
+            display: block;
+            outline: none
+        }
+
+        textarea:focus,
+        input:focus {
+            border-color: transparent !important
+        }
+
+        button {
+            outline: none !important;
+            border: none;
+            background: 0 0
+        }
+
+        button:hover {
+            cursor: pointer
+        }
+
+        iframe {
+            border: none !important
+        }
+
+        .limiter {
+            width: 100%;
+            margin: 0 auto
+        }
+
+        .container-table100 {
+            width: 100%;
+            min-height: 100vh;
+            background: #c850c0;
+            background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+            background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+            background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+            background: linear-gradient(45deg, #4158d0, #c850c0);
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 33px 30px
+        }
+
+        .wrap-table100 {
+            width: 1170px
+        }
+
+        table {
+            text-align: center;
+            border-spacing: 1;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            position: relative
+        }
+
+        table * {
+            text-align: center;
+            position: relative
+        }
+
+        table td,
+        table th {
+            text-align: center;
+            padding-left: 8px
+        }
+
+        table thead tr {
+            text-align: center;
+            height: 60px;
+            background: #36304a
+        }
+
+        table tbody tr {
+            text-align: center;
+            height: 50px
+        }
+
+        table tbody tr:last-child {
+            text-align: center;
+            border: 0
+        }
+
+        table td,
+        table th {
+            text-align: center;
+            text-align: left
+        }
+
+        table td.l,
+        table th.l {
+            text-align: center;
+            text-align: right
+        }
+
+        table td.c,
+        table th.c {
+            text-align: center;
+            text-align: center
+        }
+
+        table td.r,
+        table th.r {
+            text-align: center;
+            text-align: center
+        }
+
+        .table100-head th {
+            text-align: center;
+            font-family: OpenSans-Regular;
+            font-size: 18px;
+            color: #fff;
+            line-height: 1.2;
+            font-weight: unset
+        }
+
+        tbody tr:nth-child(even) {
+            text-align: center;
+            background-color: #f5f5f5
+        }
+
+        tbody tr {
+            text-align: center;
+            font-family: OpenSans-Regular;
+            font-size: 15px;
+            color: gray;
+            line-height: 1.2;
+            font-weight: unset
+        }
+
+        tbody tr:hover {
+            text-align: center;
+            color: #555;
+            background-color: #f5f5f5;
+            cursor: pointer
+        }
+
+        .column1 {
+            text-align: center;
+            width: 260px;
+            padding-left: 40px
+        }
+
+        .column2 {
+            text-align: center;
+            width: 160px
+        }
+
+        .column3 {
+            text-align: center;
+            width: 245px
+        }
+
+        .column4 {
+            text-align: center;
+            width: 110px;
+            text-align: right
+        }
+
+        .column5 {
+            text-align: center;
+            width: 170px;
+            text-align: right
+        }
+
+        .column6 {
+            text-align: center;
+            width: 222px;
+            text-align: right;
+            padding-right: 62px
+        }
+
+        @media screen and (max-width: 992px) {
+            table {
+                display: block
+            }
+
+            table>*,
+            table tr,
+            table td,
+            table th {
+                display: block
+            }
+
+            table thead {
+                display: none
+            }
+
+            table tbody tr {
+                height: auto;
+                padding: 37px 0
+            }
+
+            table tbody tr td {
+                padding-left: 40% !important;
+                margin-bottom: 24px
+            }
+
+            table tbody tr td:last-child {
+                margin-bottom: 0
+            }
+
+            table tbody tr td:before {
+                font-family: OpenSans-Regular;
+                font-size: 14px;
+                color: #999;
+                line-height: 1.2;
+                font-weight: unset;
+                position: absolute;
+                width: 40%;
+                left: 30px;
+                top: 0
+            }
+
+            table tbody tr td:nth-child(1):before {
+                content: "Date"
+            }
+
+            table tbody tr td:nth-child(2):before {
+                content: "Order ID"
+            }
+
+            table tbody tr td:nth-child(3):before {
+                content: "Name"
+            }
+
+            table tbody tr td:nth-child(4):before {
+                content: "Price"
+            }
+
+            table tbody tr td:nth-child(5):before {
+                content: "Quantity"
+            }
+
+            table tbody tr td:nth-child(6):before {
+                content: "Total"
+            }
+
+            .column4,
+            .column5,
+            .column6 {
+                text-align: left
+            }
+
+            .column4,
+            .column5,
+            .column6,
+            .column1,
+            .column2,
+            .column3 {
+                width: 100%
+            }
+
+            tbody tr {
+                text-align: center;
+                font-size: 14px
+            }
+        }
+
+        @media(max-width: 576px) {
+            .container-table100 {
+                padding-left: 15px;
+                padding-right: 15px
+            }
+        }
+
+        th {
+            text-align: center;
+            background-color: #36304a;
+            color: white;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+    <input type="checkbox" id="check">
+    <label for="check" class="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>My App</header>
+        <ul>
+            <li><a href="/"><i class="fas fa-qrcode"></i>Add Product</a></li>
+            <li><a href="/data/products"><i class="fas fa-stream"></i>Prudocts</a></li>
+        </ul>
+    </div>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>UUID</th>
+                            <th>Action</th>
+                        </tr>
+                        <% info.forEach(function(one) { %>
+                            <tr>
+                                <td>
+                                    <%=one.name%>
+                                </td>
+                                <td>
+                                    <%=one.price%>
+                                </td>
+                                <td>
+                                    <%=one.desc%>
+                                </td>
+                                <td>
+                                    <%=one.uuid%>
+                                </td>
+                                <td>
+                                    <a class="delete" href="/delete/<%= one._id %>">Delete</a>
+                                    <a class="update" href="/update/<%= one._id %>">Update</a>
+                                </td>
+                            </tr>
+
+                            <% }); %>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

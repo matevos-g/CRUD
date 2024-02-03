@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Form</title>
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+    <header>My App</header>
+    <ul>
+     <li><a href="/"><i class="fas fa-qrcode"></i>Add Product</a></li>
+     <li><a href="/data/products"><i class="fas fa-stream"></i>Products</a></li>
+    </ul>
+   </div>
+    <div class="container-table100">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    
+    <form method="post" action="/addInfo" >
+        <h1>Add Product</h1>
+        <label for="username">Product Name</label>
+        <input type="text" id="Name" placeholder="Name" name="name">
+        <label for="Price">Price</label>
+        <input type="number" id="Price" placeholder="Price" name="price">
+        <label for="Description">Description</label>
+        <input type="text" id="Desc" placeholder="Description" name="desc">
+        <label for="uuid">UUID</label>
+        <input type="text" id="Uuid" placeholder="UUID" name="uuid">
+        <input type="submit" class="submit" >
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
